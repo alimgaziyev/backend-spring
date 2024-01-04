@@ -1,78 +1,35 @@
-<p>В <code>Java</code> есть <code>Servlet API</code>, который позволяет нам создавать контроллеры для обработки запросов.</p>
+<h1>hellojunit</h1>
 
-<p>Данная технология была введена в далеких 2000-х годах. И код сервлета выглядит так.</p>
+<p>Улучшите свои навыки Unit-тестирования кода</p>
 
-<pre><code>import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+<h3>Задача</h3>
 
-public class MyServlet extends HttpServlet { // (1)
+<p>hellojunit - простой web-сервис, который возвращает по запросу на ресурс <code>/employee</code> информацию о работнике.</p>
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) { // 2
-        if (request.getRequestURI().startsWith("/account")) { // 3
-            String userId = request.getParameter("userId"); // 4
-            // return &lt;html&gt; or {json} or &lt;xml&gt; for an account get request
-        } else if (request.getRequestURI().startsWith("/status")) {
-            // return &lt;html&gt; or {json} or &lt;xml&gt; for a health status get request
-        } // etc
-    }
+<p>Ваша задачи - <strong>реализовать функции для тестирования ресурса</strong></p>
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) { // 5
-        // return &lt;html&gt; or {json} or &lt;xml&gt; for a post request, like a form submission
-    }
-}</code></pre>
+<p>В файле <code>TestWebApp.java</code> имеются все необходимые импорты и <code>TODO</code> которые нужно реализовать.</p>
 
-<ol>
-	<li>Мы расширяем <code>HttpServlet</code>.</li>
-	<li>Мы перезаписываем метод <code>doGet</code> для обработки <code>http</code> <code>GET</code> запросов.</li>
-	<li>Мы получаем <code>URN</code> - который является путем - <code>/account</code>.</li>
-	<li>Мы получаем из запроса параметры - <code>/account?userId=6</code>.</li>
-	<li>Мы перезаписываем метод <code>doPost</code> для обработки <code>http</code> <code>POST</code> запросов.</li>
-</ol>
+<p>Для проверки решения вы можете запустить тесты в репозитории:</p>
 
-<p><code>Servlet</code>ы - должны быть собраны в <code>jar</code> файлы.</p>
+<pre><code>cd hellojunit
+./mvnv clean test
+</code></pre>
 
-<p>После создания <code>jar</code> файла он должен быть загружен на сервер для обработки запросов. Им может выступать <code>Tomcat</code> или <code>Jetty</code>.</p>
-
-<p><code>Tomcat</code> - это веб-сервер, который обрабатывает запросы. Им можно управлять, расширяя функционал на основе загруженных <code>jar</code> <code>Servlet</code>ов.</p>
-
-<p>Минусы использования <code>Servlet</code>:</p>
+<h3>С чего начать ?</h3>
 
 <ul>
-	<li>Реализацию считывания параметров пишет разработчик.</li>
-	<li>Нет встроенной валидации форм.</li>
-	<li>Нет поддержки <code>I18N</code>.</li>
+	<li>Перейдите в директорию с <a href="https://github.com/jusan-singularity/protect-the-code/tree/master/hellojunit" rel="noopener noreferrer nofollow">задачей</a> в своем репозитории</li>
+	<li>Откройте файл <code>TestWebApp.java</code> и выполните задание</li>
+	<li>Если у вас недостаточно знаний, ознакомьтесь с <a href="https://github.com/alem-io/track-backend/blob/master/subjects/protect_the_code/STEP-01.md#related-materials-information_source" rel="noopener noreferrer nofollow">ссылками ниже</a></li>
 </ul>
 
-<p><code>Spring Web MVC</code> — веб фреймворк, основанный на <code>Servlet API</code> и являющийся частью Spring framework. В нем учтены и доработаны минусы <code>Servlet API</code></p>
-
-<pre><code>import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-@Controller
-public class HealthController {
-
-    @GetMapping("/health")
-    @ResponseBody // (1)
-    public HealthStatus health() {
-        return new HealthStatus(); // (2)
-    }
-}</code></pre>
-
-<p><code>Spring Web MVC</code> спроектирован на основе паттерна "Единая точка входа". В <code>Spring Web MVC</code> эту роль выполняет - <code>DispatcherServlet</code>.</p>
-
-<p><code>DispatcherServlet</code> - является точкой входа всех запросов. Вместе с этим, он сканирует все классы в коде, определенные через аннотацию <code>Controller</code>. <code>DispatcherServlet</code> определяет какой из <code>Controller</code>ов должен выполнить запрос.</p>
-
-<p>Конфигурации к <code>DispatcherServlet</code> создаются в <code>web.xml</code> файле или через <code>Java</code> аннотации.</p>
-
-<p>В старых версиях <code>Spring</code> <code>DispatcherServlet</code> необходимо было конфигурировать. С появлением <code>Spring Boot</code> это операция выполняется автоматически.</p>
-
-<p>Дополнительные материалы для изучения:</p>
+<h3>Материалы по теме</h3>
 
 <ul>
-	<li><a href="https://tomcat.apache.org/tomcat-5.5-doc/architecture/overview.html" rel="nofollow noopener noreferrer">Tomcat Overview</a></li>
-	<li><a href="https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web" rel="nofollow noopener noreferrer">Dispatcher Servlet</a></li>
+	<li><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/MockMvc.html" rel="nofollow noopener noreferrer">MockMVC</a></li>
+	<li><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/context/WebApplicationContext.html" rel="nofollow noopener noreferrer">WebApplicationContext</a></li>
+	<li><a href="https://junit.org/junit5/docs/current/user-guide/" rel="nofollow noopener noreferrer">junit user guide</a></li>
+	<li><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/result/MockMvcResultMatchers.html" rel="nofollow noopener noreferrer">MockMVCResultMatchers</a></li>
+	<li><a href="https://habr.com/ru/post/527330/" rel="nofollow noopener noreferrer">Улучшение Spring Mock-MVC тестов</a></li>
 </ul>

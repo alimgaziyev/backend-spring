@@ -6,5 +6,6 @@
 4. [ ] 4 Endpoints
 5. [ ] 5 Защита Endpoints
 6. [ ] 6 Save & Cache 
-7. [ ] 7
-8. [ ] 8
+7. [ ] 7 Protect the code
+8. [ ] 8 Spring Integration & MongoDB
+9. [ ] 9 
