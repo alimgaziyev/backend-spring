@@ -1,4 +1,4 @@
-# *rabbitmq-init
+<h1>rabbitmq-init</h1>
 
 <p>RabbitMQ — это брокер сообщений, который можно использовать, чтобы позволить разным сервисам обмениваться данными через общий протокол. RabbitMQ может работать как очередь заданий, который отправляет таски распределенным исполнителям.</p>
 
@@ -88,7 +88,10 @@
 </ul>
 
 
-# *rabbitmq-setup
+
+
+
+<h1>rabbitmq-setup</h1>
 
 <h2>Установка RabbitMQ</h2>
 
@@ -163,3 +166,18 @@ Setting permissions for user "developer" in vhost "dev-vhost" ...</code></pre>
 
 <p>для конкретного пользователя и виртуального хоста.</p>
 
+
+
+<h1>rabbitmq-uri</h1>
+
+<h3>Полезное</h3>
+
+<ul>
+	<li><a href="https://www.rabbitmq.com/uri-spec.html" rel="nofollow noopener noreferrer">RabbitMQ URI Specification</a></li>
+</ul>
+
+<h3>Задание</h3>
+
+<ol>
+	<li>Для успешного прохождения данного задания найдите и отправьте RabbitMQ URI для подключения под пользователем <code>app-developer</code> из прошлого задания на vhost <code>application</code>. Хост использовать <code>localhost</code>.</li>
+</ol>
