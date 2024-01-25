@@ -8,4 +8,3 @@
 6. [ ] 6 Save & Cache 
 7. [ ] 7 Protect the code
 8. [ ] 8 Spring Integration & MongoDB
-9. [ ] 9 
